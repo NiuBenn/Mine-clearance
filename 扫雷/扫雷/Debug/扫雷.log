@@ -1,0 +1,6 @@
+﻿  game.c
+c:\users\dell\desktop\c\code\12_2\扫雷\扫雷\game.c(110): warning C4098: “ClearMine”:“void”函数返回值
+  Mine clearance.c
+  正在生成代码...
+  扫雷.vcxproj -> C:\Users\dell\Desktop\c\code\12_2\扫雷\Debug\扫雷.exe
+  扫雷.vcxproj -> C:\Users\dell\Desktop\c\code\12_2\扫雷\Debug\扫雷.pdb (Partial PDB)
