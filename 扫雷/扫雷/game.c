@@ -1,36 +1,36 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include"game.h"
-void welcome()//³õÊ¼»¯ »¶Ó­½çÃæ
+void welcome()//åˆå§‹åŒ– æ¬¢è¿ç•Œé¢
 {
 	printf("                                 \n");
-	printf("        »¶Ó­ÊÔÍæÉ¨À×ÓÎÏ·         \n");
-	printf("      ²âÊÔ°æ * °æ±¾ºÅ 1.1.0      \n");
-	printf("      ÖÆ×÷ÈË£º  Edision Niu      \n");
-	printf("*******ÓÎÏ·ÖĞÈçÓöBUGÇë·´À¡*******\n");
+	printf("        æ¬¢è¿è¯•ç©æ‰«é›·æ¸¸æˆ         \n");
+	printf("      æµ‹è¯•ç‰ˆ * ç‰ˆæœ¬å· 1.1.0      \n");
+	printf("      åˆ¶ä½œäººï¼š  Edision Niu      \n");
+	printf("*******æ¸¸æˆä¸­å¦‚é‡BUGè¯·åé¦ˆ*******\n");
 	printf("                                 \n");
-	printf("ÓÎÏ·ÒÑ¼ÓÔØÍê±Ï£¬Çë°´ÈÎÒâ¼ü¼ÌĞø......\n");
+	printf("æ¸¸æˆå·²åŠ è½½å®Œæ¯•ï¼Œè¯·æŒ‰ä»»æ„é”®ç»§ç»­......\n");
 	getchar();
-	system("cls");//ÇåÆÁ
+	system("cls");//æ¸…å±
 }
 
-void menu()//Ö÷²Ëµ¥
+void menu()//ä¸»èœå•
 {
 	printf("********************************\n");
-	printf("** 0.ÍË³öÓÎÏ· **** 1.¿ªÊ¼ÓÎÏ· **\n");
+	printf("** 0.é€€å‡ºæ¸¸æˆ **** 1.å¼€å§‹æ¸¸æˆ **\n");
 	printf("********************************\n");
 }
 void game()
 {
-	char Mineboard[ROWS][COLS] = { 0 };//ÓÃÀ´´æ·ÅÀ×µÄÊı×é
-	char Showboard[ROWS][COLS] = { 0 };//ÓÃÀ´Õ¹Ê¾¸øÍæ¼ÒµÄ
-	printf("ÓÎÏ·¿ªÊ¼£º\n");
+	char Mineboard[ROWS][COLS] = { 0 };//ç”¨æ¥å­˜æ”¾é›·çš„æ•°ç»„
+	char Showboard[ROWS][COLS] = { 0 };//ç”¨æ¥å±•ç¤ºç»™ç©å®¶çš„
+	printf("æ¸¸æˆå¼€å§‹ï¼š\n");
 	InitBoard(Mineboard, ROWS,COLS,'0');
 	InitBoard(Showboard, ROWS, COLS, '*');
-	SetMine(Mineboard, ROW, COL, EASY_COUNT);//²¼ÖÃµØÀ×
-	ClearMine(Mineboard, Showboard, ROW, COL);//É¨À×
+	SetMine(Mineboard, ROW, COL, EASY_COUNT);//å¸ƒç½®åœ°é›·
+	ClearMine(Mineboard, Showboard, ROW, COL);//æ‰«é›·
 }
 
-void InitBoard(char board[ROWS][COLS], int rows, int cols, char set)//Êı×é³õÊ¼»¯
+void InitBoard(char board[ROWS][COLS], int rows, int cols, char set)//æ•°ç»„åˆå§‹åŒ–
 {
 	int i = 0;
 	int j = 0;
@@ -43,7 +43,7 @@ void InitBoard(char board[ROWS][COLS], int rows, int cols, char set)//Êı×é³õÊ¼»¯
 	}
 }
 
-void PrintBoard(char board[ROWS][COLS], int row, int col)//´òÓ¡ÆåÅÌ
+void PrintBoard(char board[ROWS][COLS], int row, int col)//æ‰“å°æ£‹ç›˜
 {
 	int i = 0;
 	int j = 0;
@@ -60,7 +60,7 @@ void PrintBoard(char board[ROWS][COLS], int row, int col)//´òÓ¡ÆåÅÌ
 	}
 }
 
-void SetMine(char board[ROWS][COLS], int row, int col,int count)//²¼ÖÃÀ×£¨Õ¨µ¯£©
+void SetMine(char board[ROWS][COLS], int row, int col,int count)//å¸ƒç½®é›·ï¼ˆç‚¸å¼¹ï¼‰
 {
 	int x = 0;
 	int y = 0;
@@ -69,30 +69,30 @@ void SetMine(char board[ROWS][COLS], int row, int col,int count)//²¼ÖÃÀ×£¨Õ¨µ¯£©
 	flag1:
 		x = (rand() % 9) + 1;
 		y = (rand() % 9) + 1;
-		if (board[x][y] != '0')//ÅĞ¶Ïµ±Ç°ÇøÓòÊÇ·ñÒÑ¾­²¼ÖÃ¹ıÀ×ÁË
-			goto flag1;//Èç¹û²¼ÖÃ¹ıÁË»Øµ½flag1´¦ÖØĞÂ²¼ÖÃ
+		if (board[x][y] != '0')//åˆ¤æ–­å½“å‰åŒºåŸŸæ˜¯å¦å·²ç»å¸ƒç½®è¿‡é›·äº†
+			goto flag1;//å¦‚æœå¸ƒç½®è¿‡äº†å›åˆ°flag1å¤„é‡æ–°å¸ƒç½®
 		board[x][y] = '1';
 		count--;
 	}
 }
 
-void ClearMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)//É¨À×
+void ClearMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)//æ‰«é›·
 {
 	int x = 0;
 	int y = 0;
-	int tmp = 0;//ÀûÓÃtmpÀ´ÊµÏÖ¿ª¾ÖµÚÒ»´Î²È??Õ¨ËÀ
-	while((Get(show))>10)//µ±Ê£ÓàÎ´ÖªÇøÓò´óÓÚ10Ö´ĞĞÑ­»·½øĞĞÉ¨À×
+	int tmp = 0;//åˆ©ç”¨tmpæ¥å®ç°å¼€å±€ç¬¬ä¸€æ¬¡è¸©??ç‚¸æ­»
+	while((Get(show))>10)//å½“å‰©ä½™æœªçŸ¥åŒºåŸŸå¤§äº10æ‰§è¡Œå¾ªç¯è¿›è¡Œæ‰«é›·
 	{
 		system("cls"); 
 		printf("\n");
 		PrintBoard(show, ROW, COL);
 	flag:
-		printf("ÇëÊäÈëÄãÒªÅÅÀ×µÄÎ»ÖÃ:");
-		scanf("%d%d", &x, &y);//ÊäÈëÒªÉ¨µÄÇøÓò×ø±ê
-		if (x < 1 || x>9 || y < 1 || y>9)//¶Ô×ø±ê½øĞĞÅĞ¶Ï
+		printf("è¯·è¾“å…¥ä½ è¦æ’é›·çš„ä½ç½®:");
+		scanf("%d%d", &x, &y);//è¾“å…¥è¦æ‰«çš„åŒºåŸŸåæ ‡
+		if (x < 1 || x>9 || y < 1 || y>9)//å¯¹åæ ‡è¿›è¡Œåˆ¤æ–­
 		{
-			printf("ÄúÊäÈëµÄÎ»ÖÃ²»ºÏ·¨£¬ÇëÖØĞÂÊäÈë£º\n");
-			goto flag;//Èç¹û²»ºÏ·¨ÖØĞÂÊäÈë
+			printf("æ‚¨è¾“å…¥çš„ä½ç½®ä¸åˆæ³•ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š\n");
+			goto flag;//å¦‚æœä¸åˆæ³•é‡æ–°è¾“å…¥
 		}
 		if (mine[x][y] == '1')
 		{
@@ -106,7 +106,7 @@ void ClearMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)//
 				show[x][y] = '@';
 				system("cls");
 				PrintBoard(show, ROW, COL);
-				printf("Õ¨ËÀÁË£¡ÓÎÏ·½áÊø£¡\n");
+				printf("ç‚¸æ­»äº†ï¼æ¸¸æˆç»“æŸï¼\n");
 				return 0;
 			}
 		}
@@ -122,28 +122,28 @@ void ClearMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)//
 				}
 				else
 				{
-					show[x][y] = '0' + GetMineCount(mine, x, y);//×Ö·û'0'¼ÓÊı×ÖnµÈÓÚ×Ö·û'n',ÒòÎªGetMineCount·µ»ØÖµÎªintËùÒÔ¼Ó×Ö·û0
+					show[x][y] = '0' + GetMineCount(mine, x, y);//å­—ç¬¦'0'åŠ æ•°å­—nç­‰äºå­—ç¬¦'n',å› ä¸ºGetMineCountè¿”å›å€¼ä¸ºintæ‰€ä»¥åŠ å­—ç¬¦0
 				}
 			}
 			else
 			{
-				printf("¸ÃÎ»ÖÃÒÑ¾­É¨¹ıÀ×ÁË£¬ÇëÖØĞÂÊäÈë£º");//Èç¹û¸Ã×ø±êµÄÖµ²»Îª* ¼´¸ÃÎ»ÖÃÒÑ¾­É¨¹ıÀ×ÁË
-				goto flag;//»Øµ½Ç°Ãæflag´¦ÔÙÖØĞÂÊäÈë×ø±ê
+				printf("è¯¥ä½ç½®å·²ç»æ‰«è¿‡é›·äº†ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š");//å¦‚æœè¯¥åæ ‡çš„å€¼ä¸ä¸º* å³è¯¥ä½ç½®å·²ç»æ‰«è¿‡é›·äº†
+				goto flag;//å›åˆ°å‰é¢flagå¤„å†é‡æ–°è¾“å…¥åæ ‡
 			}
 		}
-		tmp = 1;//½øĞĞ¹ıÒ»´ÎÉ¨À×Ö®ºótmpµÄÖµ¸³Îª1
+		tmp = 1;//è¿›è¡Œè¿‡ä¸€æ¬¡æ‰«é›·ä¹‹åtmpçš„å€¼èµ‹ä¸º1
 	}
-	printf("É¨À×³É¹¦£¡\n");//µ±Ìø³öwhileÑ­»·Ê±£¬¼´É¨À×³É¹¦
+	printf("æ‰«é›·æˆåŠŸï¼\n");//å½“è·³å‡ºwhileå¾ªç¯æ—¶ï¼Œå³æ‰«é›·æˆåŠŸ
 }
 
-int GetMineCount(char board[ROWS][COLS], int x, int y)//»ñÈ¡µ±Ç°ÇøÓòÖÜÎ§À×µÄ¸öÊı
+int GetMineCount(char board[ROWS][COLS], int x, int y)//è·å–å½“å‰åŒºåŸŸå‘¨å›´é›·çš„ä¸ªæ•°
 {
 	int count = 0;
 	count = (board[x - 1][y - 1] + board[x - 1][y] + board[x - 1][y + 1] + board[x][y + 1] + board[x + 1][y + 1] + board[x + 1][y] + board[x + 1][y - 1] + board[x][y - 1]) - 8 * '0';
 	return count;
 }
 
-int Get(char board[ROWS][COLS])//»ñÈ¡Î´ÖªÇøÓòµÄ¸öÊı
+int Get(char board[ROWS][COLS])//è·å–æœªçŸ¥åŒºåŸŸçš„ä¸ªæ•°
 {
 	int i = 0;
 	int j = 0;
@@ -159,37 +159,4 @@ int Get(char board[ROWS][COLS])//»ñÈ¡Î´ÖªÇøÓòµÄ¸öÊı
 	return count;
 }
 
-void spread(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y) //¶ÔÖÜÎ§ÎŞÀ×ÇøÓòµÄÕ¹¿ª
-{
 
-	int i = -1;
-	int j = -1;
-	for (i = -1; i <= 1; i++) //±ß½ç
-	{
-		for (j = -1; j <= 1; j++)
-		{
-			if (i != 0 || j != 0) // ±ÜÃâÅÅµ½×Ô¼º×¢Òâ´Ë´¦µÄÂß¼­¹ØÏµ
-			{
-				if (x + i >= 1 && x + i <= ROW && y + j >= 1 && y + j <= COL) //x y×ø±êÊÇ·ñºÏ·¨
-				{
-					if (show[x + i][y + j] == '*'&&mine[x + i][y + j] != '1')
-					{
-
-						int count = GetMineCount(mine, x + i, y + j);
-						if (count != 0)
-						{
-							show[x + i][y + j] = count + '0';
-						}
-						else
-						{
-							show[x + i][y + j] = ' ';
-							spread(mine, show, x + i, y + j);
-						}
-
-					}
-
-				}
-			}
-		}
-	}
-}
